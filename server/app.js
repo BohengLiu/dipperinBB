@@ -41,25 +41,16 @@ router.post('/upload', koaBody({ jsonLimit: '2mb', multipart: true }), async (ct
     // } catch (e) {
     //   console.log('upload err',e)
     // }
+    // TODO: 将try封装
     await saveFileFromBuffer(savePath,dataBuffer)
     ctx.body = fileRouter
 
 })
-// router.get('/static',static(path.join(__dirname,'./files')),async(ctx,next)=>{
-//   await next()
-// })
+
 app.use(cors());
 app.use(router.routes());   /*启动路由*/
 app.use(router.allowedMethods());
-// const staticOpt = [{
-//   dir:'./files',  //静态资源目录对于相对入口文件index.js的路径
-//   router:'/files'  //路由命名
-// },{
-//   dir:'./build',    //静态资源目录对于相对入口文件index.js的路径
-//   router:'/' 
-// }
-// ]
-// app.use(static(staticOpt))
+
 app.use(static(__dirname+'/public'))
 
 
