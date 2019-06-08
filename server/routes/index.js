@@ -1,3 +1,3 @@
 const router = require('koa-router')()
 
-router.
+module.exports = router
