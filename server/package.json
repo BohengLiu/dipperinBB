@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "dev2": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/app.ts",
+    "dev3": "ts-node src/app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js"
   },
   "keywords": [],
   "author": "Boheng Liu",
@@ -20,6 +24,14 @@
     "mongoose": "^5.5.9"
   },
   "devDependencies": {
-    "nodemon": "^1.19.0"
+    "@types/koa": "^2.0.48",
+    "@types/koa-router": "^7.0.40",
+    "@types/koa-send": "^4.1.2",
+    "@types/koa-static": "^4.0.1",
+    "@types/mongoose": "^5.5.5",
+    "@types/node": "^12.0.7",
+    "nodemon": "^1.19.0",
+    "ts-node": "^8.2.0",
+    "typescript": "^3.5.1"
   }
 }
