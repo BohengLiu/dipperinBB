@@ -18,7 +18,7 @@ interface Props {
 @observer
 class Home extends React.Component<Props> {
   handleNotePadDisplay = (flag: boolean) => () => {
-    // FIXME: 不能这样写
+    // FIXME: do not change state in component
     this.props.root!.pop.notePad = flag;
   };
   render() {

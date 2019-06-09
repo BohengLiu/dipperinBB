@@ -1,12 +1,13 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
+import { RouteComponentProps,withRouter } from 'react-router-dom'
 
 import RootStore from "@stores/root";
 
 import EssayItem from "./essayItem";
 import "./index.less";
 
-interface Props {
+interface Props extends RouteComponentProps<{}> {
   title: string;
   root?: RootStore;
 }
@@ -16,7 +17,12 @@ interface Props {
 class EssayList extends React.Component<Props> {
   constructor(props) {
     super(props);
+    // FIXME: for debug
     this.props.root!.contents.addMockEssay();
+  }
+
+  onTurn = () => {
+    this.props.history.push('/article/1')
   }
 
   render() {
@@ -27,7 +33,7 @@ class EssayList extends React.Component<Props> {
         <div className="essay-list">
           <div className="title">{title}</div>
           {essayList.map((item,index) => {
-            return <EssayItem essay={item} key={index}/>;
+            return <EssayItem onTurn={this.onTurn} essay={item} key={index}/>;
           })}
         </div>
  
@@ -35,4 +41,4 @@ class EssayList extends React.Component<Props> {
   }
 }
 
-export default EssayList;
+export default withRouter(EssayList);

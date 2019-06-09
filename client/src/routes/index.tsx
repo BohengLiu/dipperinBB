@@ -1,15 +1,26 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import Home from '@containers/home'
+import React from "react";
+import { Route, Switch, RouteComponentProps } from "react-router-dom";
+import { withRouter } from "react-router";
+import Home from "@containers/home";
+import Article from "@containers/ariticle";
 
-class Routes extends React.Component {
+class Routes extends React.Component<RouteComponentProps> {
+  // constructor(props) {
+  //   super(props)
+  //   this.props.history.push('/article')
+  // }
   render() {
+    const {
+      location,
+    } = this.props
+
     return (
-      <Switch>
+      <Switch location={location}>
         <Route path="/" exact={true} component={Home} />
+        <Route path="/article/" exact={false} component={Article} />
       </Switch>
-    )
+    );
   }
 }
 
-export default Routes
+export default withRouter(Routes);

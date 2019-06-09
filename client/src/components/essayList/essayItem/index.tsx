@@ -3,6 +3,7 @@ import Essay from "@models/essay";
 
 interface Props {
   essay: Essay;
+  onTurn: ()=> void
 }
 
 class EssayItem extends React.Component<Props> {
@@ -13,7 +14,7 @@ class EssayItem extends React.Component<Props> {
         <div className="left">
           <div className="avatar">{essay.author[0]}</div>
           <div className="info">
-            <div className="essay-title">{essay.essayTitle}</div>
+            <div className="essay-title" onClick={this.props.onTurn}>{essay.essayTitle}</div>
             <div className="create-time">
               {essay.createTime} • {essay.author}
             </div>
