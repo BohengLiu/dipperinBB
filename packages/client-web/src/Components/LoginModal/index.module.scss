@@ -1,0 +1,69 @@
+.registerModal {
+  width: 410px !important;
+  div[class='ant-modal-content'] {
+    width: 410px;
+  }
+  div[class='ant-modal-body'] {
+    padding: 0;
+    height: 484px;
+    box-sizing: border-box;
+  }
+  .registerTitle {
+    width: 410px;
+    height: 120px;
+    border-radius: 3px 3px 0 0;
+    background: rgba(40, 96, 164, 1);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      margin-top: 10px;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+  .body {
+    padding: 35px;
+    .label {
+      color: #2860A4;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .username {
+      width: 100%;
+      height: 40px;
+      background: rgba(242, 242, 242, 1);
+      color: #949494;
+      border-radius: 6px;
+      padding: 0 15px;
+      margin-top: 10px;
+    }
+    .description {
+      margin-top: 20px;
+      width: 100%;
+      height: 108px;
+      background: rgba(242, 242, 242, 1);
+      color: #949494;
+      resize: none;
+      border-radius: 6px;
+      padding: 10px 15px;
+
+    }
+    .btnConfirm {
+      height: 40px;
+      border-radius: 20px;
+      width: 100%;
+      margin-top: 50px;
+      outline: none;
+      border: none;
+      background: #2860A4;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}

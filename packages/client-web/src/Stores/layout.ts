@@ -5,6 +5,11 @@ class LayoutStore {
   @action setIfShowNotePad = (flag: boolean) => {
     this.ifShowNotePad = flag
   }
+
+  @observable ifShowLoginModal: boolean = false
+  @action setIfShowLoginModal = (flag: boolean) => {
+    this.ifShowLoginModal = flag
+  }
 }
 
 export default LayoutStore

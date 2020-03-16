@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 // import {observable} from 'mobx'
-import {observer,inject} from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import RootStore from 'Stores/root'
 
-import "./index.less";
+import './index.less'
 
 interface Props {
   root?: RootStore
@@ -12,7 +12,7 @@ interface Props {
 @inject('root')
 @observer
 class Header extends React.Component<Props> {
-  handleOpenNotePad =()=> {
+  handleOpenNotePad = () => {
     this.props.root!.layout.setIfShowNotePad(true)
     console.log('open notePad!')
   }
@@ -27,10 +27,16 @@ class Header extends React.Component<Props> {
         <div onClick={this.handleOpenNotePad}>写文章</div>
         <div>搜索</div>
         <div>私信</div>
-        <div>用户信息</div>
+        <div
+          onClick={() => {
+            this.props.root!.layout.setIfShowLoginModal(true)
+          }}
+        >
+          用户信息
+        </div>
       </div>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header

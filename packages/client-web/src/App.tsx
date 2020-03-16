@@ -21,7 +21,7 @@ const rootStore = new RootStore()
 class App extends React.Component {
   public render() {
     return (
-      <Provider root={rootStore}>
+      <Provider root={rootStore} layout={rootStore.layout}>
         <Router history={history}>
           <Route component={Routes} />
         </Router>
