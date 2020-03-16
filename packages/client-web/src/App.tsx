@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserHistory } from 'history'
+import { Provider } from 'mobx-react'
+import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'
+import React from 'react'
+import { Route, Router } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+import Routes from './routes'
+import RootStore from 'Stores/root'
+// import Label from './stores/label'
+
+const browserHistory = createBrowserHistory()
+const routingStore = new RouterStore()
+
+const history = syncHistoryWithStore(browserHistory, routingStore)
+
+const rootStore = new RootStore()
+
+// const label = new Label()
+
+class App extends React.Component {
+  public render() {
+    return (
+      <Provider root={rootStore}>
+        <Router history={history}>
+          <Route component={Routes} />
+        </Router>
+      </Provider>
+    )
+  }
 }
 
-export default App;
+export default App
