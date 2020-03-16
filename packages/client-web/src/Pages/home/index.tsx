@@ -18,18 +18,17 @@ interface Props {
 @observer
 class Home extends React.Component<Props> {
   handleNotePadDisplay = (flag: boolean) => () => {
-    // FIXME: do not change state in component
-    this.props.root!.pop.notePad = flag
+    this.props.root!.layout.setIfShowNotePad(flag)
   }
   render() {
-    const { notePad } = this.props.root!.pop
+    const { ifShowNotePad } = this.props.root!.layout
     return (
       <div className="home">
         <Curtain>
           <Header />
           <EssayList title={'热门'} />
         </Curtain>
-        {notePad && <NotePad onClose={this.handleNotePadDisplay(false)} />}
+        {ifShowNotePad && <NotePad onClose={this.handleNotePadDisplay(false)} />}
       </div>
     )
   }

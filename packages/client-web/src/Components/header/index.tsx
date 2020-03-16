@@ -13,8 +13,7 @@ interface Props {
 @observer
 class Header extends React.Component<Props> {
   handleOpenNotePad =()=> {
-    // FIXME: 不要直接在外部修改 store 内的变量
-    this.props.root!.pop.notePad = true
+    this.props.root!.layout.setIfShowNotePad(true)
     console.log('open notePad!')
   }
   render() {

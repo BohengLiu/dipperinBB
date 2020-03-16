@@ -1,13 +1,13 @@
 import ContentStore from './contents'
-import PopStore from './pop'
+import LayoutStore from './layout'
 
 class RootStore {
   contents: ContentStore
-  pop: PopStore
+  layout: LayoutStore
 
   constructor() {
     this.contents = new ContentStore()
-    this.pop = new PopStore()
+    this.layout = new LayoutStore()
   }
 }
 
