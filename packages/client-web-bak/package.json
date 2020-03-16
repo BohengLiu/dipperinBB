@@ -44,6 +44,7 @@
   "devDependencies": {
     "@types/react-router-dom": "^4.3.3",
     "craco-less": "^1.7.0",
+    "jest": "24.7.1",
     "webpackbar": "^3.2.0"
   },
   "proxy": "http://localhost:8090"
