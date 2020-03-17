@@ -5,7 +5,8 @@
     "lerna": "^3.20.2"
   },
   "scripts": {
-    "dev:web": "yarn workspace"
+    "dev:web": "yarn workspace @wisdom-node/client-web dev",
+    "dev:nest": "yarn workspace @wisdom-node/server-nestjs dev"
   },
   "workspaces": [
     "packages/*"

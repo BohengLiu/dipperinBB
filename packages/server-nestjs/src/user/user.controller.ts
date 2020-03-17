@@ -20,27 +20,48 @@ export class UserController {
 
   constructor(private readonly userService: UserService) {}
 
+  /**
+   * 返回用户信息✔️
+   * @param email 
+   */
   @Get('user')
   async findMe(@User('email') email: string): Promise<UserRO> {
     return await this.userService.findByEmail(email);
   }
 
+  /**
+   * 更新用户信息
+   * @param userId 
+   * @param userData 
+   */
   @Put('user')
   async update(@User('id') userId: number, @Body('user') userData: UpdateUserDto) {
     return await this.userService.update(userId, userData);
   }
 
+  /**
+   * 新建用户✔️
+   * @param userData 
+   */
   @UsePipes(new ValidationPipe())
   @Post('users')
   async create(@Body('user') userData: CreateUserDto) {
     return this.userService.create(userData);
   }
 
+  /**
+   * 删除用户
+   * @param params 
+   */
   @Delete('users/:slug')
   async delete(@Param() params) {
     return await this.userService.delete(params.slug);
   }
 
+  /**
+   * 登录✔️
+   * @param loginUserDto 
+   */
   @UsePipes(new ValidationPipe())
   @Post('users/login')
   async login(@Body('user') loginUserDto: LoginUserDto): Promise<UserRO> {

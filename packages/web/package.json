@@ -18,7 +18,8 @@
     "url": "git+https://github.com/BohengLiu/wisdom-node.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "start": "pwd"
   },
   "bugs": {
     "url": "https://github.com/BohengLiu/wisdom-node/issues"

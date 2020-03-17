@@ -9,3 +9,11 @@ export interface UserData {
 export interface UserRO {
   user: UserData;
 }
+
+export interface JWTPayload {
+  id: number,
+  username: string,
+  email: string,
+  exp: number,
+  iat: number
+}

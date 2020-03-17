@@ -6,10 +6,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { ProfileModule } from './profile/profile.module';
 import { TagModule } from './tag/tag.module';
+import {Ormconfig} from './ormconfig'
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
+    TypeOrmModule.forRoot(Ormconfig),
     ArticleModule,
     UserModule,
     ProfileModule,
