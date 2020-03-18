@@ -3,14 +3,16 @@ import { Route, Switch, RouteComponentProps } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import Home from 'Pages/home'
 import Article from 'Pages/ariticle'
-import LoginModal from 'Components/LoginModal'
+import LoginModal from 'Containers/LoginModal'
 import { observer, inject } from 'mobx-react'
 import LayoutStore from 'Stores/layout'
+import AccountStore from 'Stores/account'
 
 interface Props extends RouteComponentProps {
   layout: LayoutStore
+  account: AccountStore
 }
-@inject('layout')
+@inject('layout','account')
 @observer
 class Routes extends React.Component<Props> {
   // constructor(props) {
@@ -30,6 +32,8 @@ class Routes extends React.Component<Props> {
           <Route path="/article/" exact={false} component={Article} />
         </Switch>
         <LoginModal
+          onLogin={this.props.account.login}
+          onRegister={this.props.account.register}
           visiable={layout.ifShowLoginModal}
           onCancel={this.handleCloseLoginMoadal}
           onConfirm={(u: string, d: string) => Promise.resolve()}

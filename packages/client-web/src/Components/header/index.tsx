@@ -1,19 +1,19 @@
 import React from 'react'
 // import {observable} from 'mobx'
 import { observer, inject } from 'mobx-react'
-import RootStore from 'Stores/root'
+import LayoutStore from 'Stores/layout'
 
 import './index.less'
 
 interface Props {
-  root?: RootStore
+  layout?: LayoutStore
 }
 
-@inject('root')
+@inject('layout')
 @observer
 class Header extends React.Component<Props> {
   handleOpenNotePad = () => {
-    this.props.root!.layout.setIfShowNotePad(true)
+    this.props.layout!.setIfShowNotePad(true)
     console.log('open notePad!')
   }
   render() {
@@ -29,7 +29,7 @@ class Header extends React.Component<Props> {
         <div>私信</div>
         <div
           onClick={() => {
-            this.props.root!.layout.setIfShowLoginModal(true)
+            this.props.layout!.setIfShowLoginModal(true)
           }}
         >
           用户信息

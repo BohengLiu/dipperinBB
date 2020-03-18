@@ -6,22 +6,22 @@ import Header from 'Components/header'
 import EssayList from 'Components/essayList'
 import NotePad from 'Components/notePad'
 
-import RootStore from 'Stores/root'
+import LayoutStore from 'Stores/layout'
 
 import './index.less'
 
 interface Props {
-  root?: RootStore
+  layout?: LayoutStore
 }
 
-@inject('root')
+@inject('layout')
 @observer
 class Home extends React.Component<Props> {
   handleNotePadDisplay = (flag: boolean) => () => {
-    this.props.root!.layout.setIfShowNotePad(flag)
+    this.props.layout!.setIfShowNotePad(flag)
   }
   render() {
-    const { ifShowNotePad } = this.props.root!.layout
+    const { ifShowNotePad } = this.props.layout!
     return (
       <div className="home">
         <Curtain>

@@ -1,13 +1,13 @@
 .registerModal {
   width: 410px !important;
-  div[class='ant-modal-content'] {
-    width: 410px;
-  }
-  div[class='ant-modal-body'] {
-    padding: 0;
-    height: 484px;
-    box-sizing: border-box;
-  }
+  // div[class='ant-modal-content'] {
+  //   width: 410px;
+  // }
+  // div[class='ant-modal-body'] {
+  //   padding: 0;
+  //   height: 484px;
+  //   box-sizing: border-box;
+  // }
   .registerTitle {
     width: 410px;
     height: 120px;
@@ -64,6 +64,34 @@
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
+    }
+  }
+}
+
+.tab {
+  width: 100%;
+  // padding: 10px;
+  .tabsTab {
+    display: inline-block;
+    text-align: center;
+    width: 75px;
+  }
+  // :global {
+  //   .ant-tabs-nav-container {
+  //     padding: 0 10px;
+  //   }
+  // }
+}
+
+.login {
+  .btnBox {
+    display: flex;
+    justify-content: center;
+    :global {
+      .ant-form-item-control-input-content {
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 }

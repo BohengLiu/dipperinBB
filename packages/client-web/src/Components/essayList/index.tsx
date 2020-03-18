@@ -2,23 +2,23 @@ import React from "react";
 import { observer, inject } from "mobx-react";
 import { RouteComponentProps,withRouter } from 'react-router-dom'
 
-import RootStore from "Stores/root";
+import ContentStore from "Stores/contents";
 
 import EssayItem from "./essayItem";
 import "./index.less";
 
 interface Props extends RouteComponentProps<{}> {
   title: string;
-  root?: RootStore;
+  contents?: ContentStore;
 }
 
-@inject("root")
+@inject("contents")
 @observer
 class EssayList extends React.Component<Props> {
   constructor(props:Props) {
     super(props);
     // FIXME: for debug
-    this.props.root!.contents.addMockEssay();
+    this.props.contents!.addMockEssay();
   }
 
   onTurn = () => {
@@ -27,7 +27,7 @@ class EssayList extends React.Component<Props> {
 
   render() {
     const { title } = this.props;
-    const { essayList } = this.props.root!.contents;
+    const { essayList } = this.props.contents!;
     return (
   
         <div className="essay-list">
