@@ -1,5 +1,5 @@
 import React from 'react'
-import Essay from 'Models/essay'
+import Essay from 'Model/essay'
 
 interface Props {
   essay: Essay

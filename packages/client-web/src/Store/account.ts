@@ -1,4 +1,18 @@
+export interface AccountIF {
+  userId: number,
+  username: string,
+  email: string,
+  bio: string,
+  token: string,
+  image: string
+}
+
 class Account {
+  account?: AccountIF
+
+  getAccountInfo = () => {
+    
+  }
   register =async (email: string, username: string, password: string) => {
     console.log('register', email, username, password)
     return Promise.resolve()

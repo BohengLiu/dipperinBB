@@ -5,8 +5,8 @@ import React from 'react'
 import { Route, Router } from 'react-router-dom'
 
 import './App.css'
-import Routes from './Routes'
-import RootStore from 'Stores/root'
+import Routes from './Route'
+import RootStore from 'Store/root'
 // import Label from './stores/label'
 
 const browserHistory = createBrowserHistory()

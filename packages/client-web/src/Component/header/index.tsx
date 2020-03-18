@@ -1,7 +1,7 @@
 import React from 'react'
 // import {observable} from 'mobx'
 import { observer, inject } from 'mobx-react'
-import LayoutStore from 'Stores/layout'
+import LayoutStore from 'Store/layout'
 
 import './index.less'
 

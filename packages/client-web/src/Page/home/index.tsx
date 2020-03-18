@@ -1,12 +1,12 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
 
-import Curtain from 'Components/curtain'
-import Header from 'Components/header'
-import EssayList from 'Components/essayList'
-import NotePad from 'Components/notePad'
+import Curtain from 'Component/curtain'
+import Header from 'Component/header'
+import EssayList from 'Component/essayList'
+import NotePad from 'Component/notePad'
 
-import LayoutStore from 'Stores/layout'
+import LayoutStore from 'Store/layout'
 
 import './index.less'
 

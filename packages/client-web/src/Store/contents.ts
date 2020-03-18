@@ -1,5 +1,5 @@
 import { observable } from 'mobx'
-import Essay, { essayParam } from 'Models/essay'
+import Essay, { essayParam } from 'Model/essay'
 
 class ContentStore {
   @observable

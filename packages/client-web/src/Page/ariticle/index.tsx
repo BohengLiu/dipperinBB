@@ -2,7 +2,7 @@ import React from 'react'
 // import {observable} from 'mobx'
 import { Link } from 'react-router-dom'
 
-import Header from 'Components/header'
+import Header from 'Component/header'
 
 class Article extends React.Component {
   authorInfo = {

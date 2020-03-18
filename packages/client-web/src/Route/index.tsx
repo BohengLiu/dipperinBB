@@ -1,12 +1,12 @@
 import React from 'react'
 import { Route, Switch, RouteComponentProps } from 'react-router-dom'
 import { withRouter } from 'react-router'
-import Home from 'Pages/home'
-import Article from 'Pages/ariticle'
-import LoginModal from 'Containers/LoginModal'
+import Home from 'Page/home'
+import Article from 'Page/ariticle'
+import LoginModal from 'Container/LoginModal'
 import { observer, inject } from 'mobx-react'
-import LayoutStore from 'Stores/layout'
-import AccountStore from 'Stores/account'
+import LayoutStore from 'Store/layout'
+import AccountStore from 'Store/account'
 
 interface Props extends RouteComponentProps {
   layout: LayoutStore

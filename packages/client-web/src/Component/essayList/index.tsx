@@ -2,7 +2,7 @@ import React from "react";
 import { observer, inject } from "mobx-react";
 import { RouteComponentProps,withRouter } from 'react-router-dom'
 
-import ContentStore from "Stores/contents";
+import ContentStore from "Store/contents";
 
 import EssayItem from "./essayItem";
 import "./index.less";
