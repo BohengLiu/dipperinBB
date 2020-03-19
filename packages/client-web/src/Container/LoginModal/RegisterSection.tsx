@@ -59,9 +59,9 @@ class RegisterSection extends React.Component<Props> {
           </Form.Item>
 
           <Form.Item
-            label={config.passwordLabel}
-            name="password"
-            rules={[{ required: true, message: config.passwordEmptyError }]}
+            label={config.repeatPasswordLabel}
+            name="repeatPassword"
+            rules={[{ required: true, message: config.repeatPasswordEmptyError }]}
           >
             <Input.Password />
           </Form.Item>

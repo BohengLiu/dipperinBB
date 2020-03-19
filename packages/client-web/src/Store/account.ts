@@ -49,12 +49,13 @@ class AccountStore {
     }
   }
 
-  register = async (email: string, username: string, password: string) => {
+  register = async (email: string, username: string, password: string):Promise<ResultIF<null, string>> => {
     // FIXME:
     console.log('register', email, username, password)
     const res = await createAccount(email, username, password)
     if (res.success) {
       this.setAccount(res.data)
+      return DefaultResult.success
     } else {
       // TODO: 分不同的从错误
       return {

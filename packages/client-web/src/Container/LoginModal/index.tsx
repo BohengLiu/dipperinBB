@@ -24,13 +24,17 @@ class LoginModal extends React.Component<Props> {
   handleLogin = async (email: string, password: string) => {
     const res = await this.props.account.login(email,password)
     console.log('registerRes', res)
-    return 
+    if (res.success) {
+      this.props.onCancel()
+    }
   }
 
   handleRegister = async (email: string, username: string, password: string) => {
     const res = await this.props.account.register(email,username, password)
     console.log('loginRes',res)
-    return 
+    if (res.success) {
+      this.props.onCancel()
+    }
   }
 
 
