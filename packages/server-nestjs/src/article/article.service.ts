@@ -63,6 +63,11 @@ export class ArticleService {
     return {articles, articlesCount};
   }
 
+  /**
+   * 获取用户关注作者的文章
+   * @param userId 
+   * @param query 
+   */
   async findFeed(userId: number, query): Promise<ArticlesRO> {
     const _follows = await this.followsRepository.find( {followerId: userId});
 
@@ -97,7 +102,12 @@ export class ArticleService {
     const article = await this.articleRepository.findOne(where);
     return {article};
   }
-
+  
+  /**
+   * 添加评论
+   * @param slug 
+   * @param commentData 
+   */
   async addComment(slug: string, commentData): Promise<ArticleRO> {
     let article = await this.articleRepository.findOne({slug});
 
@@ -111,6 +121,11 @@ export class ArticleService {
     return {article}
   }
 
+  /**
+   * 删除评论
+   * @param slug 
+   * @param id 
+   */
   async deleteComment(slug: string, id: string): Promise<ArticleRO> {
     let article = await this.articleRepository.findOne({slug});
 
@@ -128,6 +143,11 @@ export class ArticleService {
 
   }
 
+  /**
+   * 收藏文章
+   * @param id 
+   * @param slug 
+   */
   async favorite(id: number, slug: string): Promise<ArticleRO> {
     let article = await this.articleRepository.findOne({slug});
     const user = await this.userRepository.findOne(id);
@@ -144,6 +164,11 @@ export class ArticleService {
     return {article};
   }
 
+  /**
+   * 取消收藏文章
+   * @param id 
+   * @param slug 
+   */
   async unFavorite(id: number, slug: string): Promise<ArticleRO> {
     let article = await this.articleRepository.findOne({slug});
     const user = await this.userRepository.findOne(id);
@@ -162,6 +187,10 @@ export class ArticleService {
     return {article};
   }
 
+  /**
+   * 获取评论
+   * @param slug 
+   */
   async findComments(slug: string): Promise<CommentsRO> {
     const article = await this.articleRepository.findOne({slug});
     return {comments: article.comments};
