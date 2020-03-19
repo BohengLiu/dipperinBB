@@ -45,7 +45,7 @@ export class UserController {
    */
   @UsePipes(new ValidationPipe())
   @Post('users')
-  async create(@Body() userData: CreateUserDto) {
+  async create(@Body('user') userData: CreateUserDto) {
     return this.userService.create(userData);
   }
 
@@ -64,7 +64,7 @@ export class UserController {
    */
   @UsePipes(new ValidationPipe())
   @Post('users/login')
-  async login(@Body() loginUserDto: LoginUserDto): Promise<UserRO> {
+  async login(@Body('user') loginUserDto: LoginUserDto): Promise<UserRO> {
     const _user = await this.userService.findOne(loginUserDto);
 
     const errors = {User: ' not found'};

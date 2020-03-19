@@ -43,7 +43,7 @@ export const createAxiosInstance = (
     (error: AxiosError) => {
       // let err: Error
       console.log('request error:', error, error.response)
-      return Promise.reject(error)
+      return Promise.reject(error.response)
     }
   )
   return instance

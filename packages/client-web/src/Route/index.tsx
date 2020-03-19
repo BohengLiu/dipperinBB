@@ -32,11 +32,10 @@ class Routes extends React.Component<Props> {
           <Route path="/article/" exact={false} component={Article} />
         </Switch>
         <LoginModal
-          onLogin={this.props.account.login}
-          onRegister={this.props.account.register}
           visiable={layout.ifShowLoginModal}
           onCancel={this.handleCloseLoginMoadal}
           onConfirm={(u: string, d: string) => Promise.resolve()}
+          account={this.props.account}
         />
       </>
     )

@@ -2,9 +2,19 @@ import React from 'react'
 // import {observable} from 'mobx'
 import { Link } from 'react-router-dom'
 
-import Header from 'Component/header'
+import Header from 'Container/Header'
+import { observer, inject } from 'mobx-react'
+import AccountStore from 'Store/account'
+import LayoutStore from 'Store/layout'
 
-class Article extends React.Component {
+interface Props {
+  account: AccountStore
+  layout: LayoutStore
+}
+
+@inject('layout', 'account')
+@observer
+class Article extends React.Component<Props> {
   authorInfo = {
     username: 'yeyan1996',
     avatar: ''
@@ -17,7 +27,7 @@ class Article extends React.Component {
   render() {
     return (
       <div className="article">
-        <Header />
+        <Header account={this.props.account} layout={this.props.layout}/>
         <main className="article-area">
           <article>
             <div className="author-info-block">

@@ -19,9 +19,12 @@ const rootStore = new RootStore()
 // const label = new Label()
 
 class App extends React.Component {
+  componentDidMount() {
+    rootStore.load()
+  }
   public render() {
     return (
-      <Provider {...rootStore}>
+      <Provider account={rootStore.account} layout={rootStore.layout} content={rootStore.content}>
         <Router history={history}>
           <Route component={Routes} />
         </Router>

@@ -16,9 +16,6 @@ export const calcChartLength = (str: string) => {
 }
 
 
-// #region  ======================== logic =========================
-
-
 /**
  * generate Avatar by address
  * @example
@@ -44,22 +41,6 @@ export const getUUID = () => {
   return uuid
 }
 
-export const getMarketCloseTime = (dateString: string | number) => {
-  const now = new Date(dateString)
-  const closeTimeString = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} 15:00`
-  // TODO: 当前的有效时间是一周，之后调整下
-  const timestamp = new Date(closeTimeString).valueOf() * 1000000
-  return timestamp
-}
-
-export const cent2yuan = (amount: number): string =>
-  (amount / 100).toLocaleString('zh', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-
-export const formatRate = (rate: number): string =>
-  (rate * 100).toLocaleString('zh', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-
-export const yuan2cent = (amount: number): number => parseInt(String(amount * 100), 10)
-
 export const formatPercentage = (value: string | number) =>
   Number(value).toLocaleString('en', { style: 'percent', minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
@@ -73,7 +54,6 @@ export const sleep = (length: number) =>
     }, length)
   })
 
-
 export const floorHundredNumber = (num: number) => Math.floor(num / 100) * 100
 
 export const throttle = <T extends (...args: any) => any>(func: T, wait: number) => {
@@ -86,5 +66,3 @@ export const throttle = <T extends (...args: any) => any>(func: T, wait: number)
     }
   }
 }
-
-// #endregion =======================================
