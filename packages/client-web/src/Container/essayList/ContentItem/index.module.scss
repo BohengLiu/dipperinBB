@@ -1,0 +1,39 @@
+.itemBox {
+  display: flex;
+  justify-content: space-between;
+  height: 118px;
+  border-bottom: 1px solid #eee;
+  .leftPart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .contentTitle {
+      font-size: 36px;
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+    }
+    .actionBox {
+      display: flex;
+      button {
+        background-color: #fff;
+        outline: none;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        margin: 10px;
+      }
+      .like {
+        width: 70px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .comment {
+        width: 70px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
+  }
+}

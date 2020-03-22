@@ -4,7 +4,7 @@ import { RouteComponentProps,withRouter } from 'react-router-dom'
 
 import ContentStore from "Store/content";
 
-import EssayItem from "./essayItem";
+import ContentItem from "./ContentItem";
 import "./index.less";
 
 interface Props extends RouteComponentProps<{}> {
@@ -25,7 +25,20 @@ class EssayList extends React.Component<Props> {
     this.props.history.push('/article/1')
   }
 
+  handleLikeArticle = (slug:string) => {
+    console.log('like',  slug)
+  }
+
   render() {
+    const mockData = {
+      slug: 'aldfla',
+      url: '/articles/aldfla',
+      title: 'halouhalouhalou',
+      uts: Date.now(), // update timestamp
+      authorName: 'user1',
+      likeCount: 1,
+      commentCount: 2,
+    }
     const { title } = this.props;
     const { essayList } = this.props.content!;
     return (
@@ -33,7 +46,7 @@ class EssayList extends React.Component<Props> {
         <div className="essay-list">
           <div className="title">{title}</div>
           {essayList.map((item,index) => {
-            return <EssayItem onTurn={this.onTurn} essay={item} key={index}/>;
+            return <ContentItem {...mockData} onLike={this.handleLikeArticle} key={index}/>;
           })}
         </div>
  

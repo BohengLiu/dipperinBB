@@ -6,13 +6,18 @@ import Header from 'Container/Header'
 import { observer, inject } from 'mobx-react'
 import AccountStore from 'Store/account'
 import LayoutStore from 'Store/layout'
+import styles from './index.module.scss'
+import {ArticleData} from '@wisdom-node/server-nestjs/src/article/article.interface'
+import ContentStore from 'Store/content'
+import {RouteComponentProps} from 'react-router-dom'
 
-interface Props {
+interface Props extends RouteComponentProps<{slug: string}> {
   account: AccountStore
   layout: LayoutStore
+  content: ContentStore
 }
 
-@inject('layout', 'account')
+@inject('layout', 'account', 'content')
 @observer
 class Article extends React.Component<Props> {
   authorInfo = {
@@ -24,9 +29,30 @@ class Article extends React.Component<Props> {
     viewCounts: 10,
     title: '大型项目前端架构浅谈（8000字原创）'
   }
+
+  content?: ArticleData
+  slug: string
+
+  constructor(props: Props){
+    super(props)
+    this.slug = props.match.params.slug
+  }
+
+  componentDidMount() {
+    this.getArticle()
+  }
+
+  getArticle = async () => {
+    const res = await this.props.content.getArticle(this.slug)
+    if (res.success) {
+      this.content = res.data
+    }
+  }
+
+  
   render() {
     return (
-      <div className="article">
+      <div className={styles.article}>
         <Header account={this.props.account} layout={this.props.layout}/>
         <main className="article-area">
           <article>

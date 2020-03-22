@@ -99,7 +99,8 @@ export class ArticleService {
   }
 
   async findOne(where): Promise<ArticleRO> {
-    const article = await this.articleRepository.findOne(where);
+    console.log(where)
+    const article = await this.articleRepository.findOne({where,relations:['author']});
     return {article};
   }
   

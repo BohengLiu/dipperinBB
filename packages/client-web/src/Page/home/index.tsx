@@ -3,7 +3,7 @@ import { observer, inject } from 'mobx-react'
 
 import Curtain from 'Component/curtain'
 import Header from 'Container/Header'
-import EssayList from 'Component/essayList'
+import EssayList from 'Container/essayList'
 import NotePad from 'Component/notePad'
 
 import LayoutStore from 'Store/layout'

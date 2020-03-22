@@ -1,4 +1,5 @@
 import { getRequest, postRequest } from 'Service/http'
+import {ArticleData} from '@wisdom-node/server-nestjs/src/article/article.interface'
 
 interface SuccessResultIF<T> {
   success: true
@@ -37,9 +38,9 @@ interface UserInfoREIF {
   user: UserInfoIF
 }
 
-// -------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Account api
-// --------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 export const getAccountInfo = async (authorization: string) => {
   const res = await getRequest('/user', authorization)
@@ -82,6 +83,28 @@ export const loginAccount = async (email: string, password: string): Promise<Res
     return {
       success: true,
       data: res.user,
+    }
+  } catch (e) {
+    return {
+      success: false,
+      error: null,
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Content api
+// -----------------------------------------------------------------------------
+interface ArticleREIF {
+  article: ArticleData
+}
+
+export const getArticle = async (slug: string):Promise<ResultIF<ArticleData,null>> => {
+  try {
+    const res = await getRequest('articles/'+slug) as any as ArticleREIF
+    return {
+      success: true,
+      data: res.article,
     }
   } catch (e) {
     return {

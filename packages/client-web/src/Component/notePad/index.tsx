@@ -26,6 +26,10 @@ class NotePad extends React.Component<Props> {
     console.log('handleEditorChange', html, text)
     return
   }
+  handleRenderMd = (text: string) => {
+    console.log('parse',this.mdjs.parse(text,{}))
+    return this.mdjs.render(text)
+  }
 
   handleImageUpload = (file: Blob, callback: (data: any) => void) => {
     const reader = new FileReader()
@@ -103,7 +107,7 @@ class NotePad extends React.Component<Props> {
                 },
                 // imageUrl: 'https://octodex.github.com/images/minion.png'
               }}
-              renderHTML={(text)=>this.mdjs.render(text)}
+              renderHTML={this.handleRenderMd}
               onChange={this.handleEditorChange}
               onImageUpload={this.handleImageUpload}
             />

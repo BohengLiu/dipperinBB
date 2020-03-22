@@ -1,5 +1,9 @@
 import { observable } from 'mobx'
 import Essay, { essayParam } from 'Model/essay'
+import * as api from 'Service/API/v1'
+import { ResultIF } from 'Utils/common.interface'
+import {ArticleData} from '@wisdom-node/server-nestjs/src/article/article.interface'
+
 
 class ContentStore {
   @observable
@@ -8,6 +12,8 @@ class ContentStore {
   addEssay = (param: essayParam) => {
     this.essayList.push(new Essay(param))
   }
+
+
 
   addMockEssay = () => {
     const param = {
@@ -20,6 +26,19 @@ class ContentStore {
       visit: 3658,
     }
     this.essayList.push(new Essay(param))
+  }
+
+  getArticle = async (slug: string): Promise<ResultIF<ArticleData,string>> => {
+    console.log('get Article')
+    const res = await api.getArticle(slug)
+    if (res.success) {
+      return res
+    } else {
+      return {
+        success: false,
+        error: "获取内容失败"
+      }
+    }
   }
 }
 

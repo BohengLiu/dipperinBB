@@ -4,11 +4,12 @@ interface Comment {
   body: string;
 }
 
-interface ArticleData {
+export interface ArticleData {
+  id: number
   slug: string;
   title: string;
   description: string;
-  body?: string;
+  content?: string;
   tagList?: string[];
   createdAt?: Date
   updatedAt?: Date

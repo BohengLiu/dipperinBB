@@ -1,5 +1,7 @@
 import {Get, Post, Body, Put, Delete, Query, Param, Controller} from '@nestjs/common';
 import { Request } from 'express';
+import { HttpException } from '@nestjs/common/exceptions/http.exception';
+
 import { ArticleService } from './article.service';
 import { CreateArticleDto, CreateCommentDto } from './dto';
 import { ArticlesRO, ArticleRO } from './article.interface';
@@ -38,7 +40,10 @@ export class ArticleController {
 
   @Get(':slug')
   async findOne(@Param('slug') slug): Promise<ArticleRO> {
-    return await this.articleService.findOne({slug});
+    const article = await this.articleService.findOne({slug});
+    console.log('find Article', article)
+    console.log(article.article)
+    return article
   }
 
   @Get(':slug/comments')
@@ -60,6 +65,7 @@ export class ArticleController {
   @Put(':slug')
   async update(@Param() params, @Body('article') articleData: CreateArticleDto) {
     // Todo: update slug also when title gets changed
+    // FIXME: 没有权限管理，需要确认user具有修改权限
     return this.articleService.update(params.slug, articleData);
   }
 
